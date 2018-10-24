@@ -1,0 +1,27 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+description: Make a Service1Instance
+
+imports:
+  - custom_types/servicetwo.yaml
+  - custom_types/servicetwoinstance.yaml
+
+topology_template:
+  node_templates:
+    servicetwo:
+      type: tosca.nodes.ServiceTwo
+      properties:
+        name: servicetwo
+        service_message: "Hello World"
+        service_secret: "password"
+
+#    serviceTwoinstance:
+#      type: tosca.nodes.ServiceTwoInstance
+#      properties:
+#        name: "My Simple Example Service Instance"
+#        tenant_message: "world"
+#        tenant_secret: "p@ssw0rd"
+#      requirements:
+#        - owner:
+#            node: servicetwo
+#            relationship: tosca.relationships.BelongsToOne
